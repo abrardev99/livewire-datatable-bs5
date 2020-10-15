@@ -18,14 +18,13 @@ trait WithPerPagePagination
         return 'partial.pagination.bootstrap-5';
     }
 
-    public function initializeWithPerPagePagination()
-    {
-        $this->perPage = session()->get('perPage', $this->perPage);
-    }
-
     public function updatedPerPage($value)
     {
         $this->gotoPage(1);
-        session()->put('perPage', $value);
+    }
+
+    public function applyPagination($query)
+    {
+        return $query->paginate($this->perPage);
     }
 }

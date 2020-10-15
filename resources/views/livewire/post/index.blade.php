@@ -35,10 +35,6 @@
 
         </div>
 
-        {{ session()->get('perPage', 0) }}
-        {{ $perPage }}
-
-
         <div class="col-12">
             <div class="table-responsive">
                 <table class="table table-bordered">
@@ -53,7 +49,7 @@
                     <tbody>
                     @foreach($posts as $post)
                     <tr>
-                        <th><div><input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></div></th>
+                        <th><div><input class="form-check-input" type="checkbox"></div></th>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->status }}</td>
                         <td>{{ $post->date_formatted }}</td>
