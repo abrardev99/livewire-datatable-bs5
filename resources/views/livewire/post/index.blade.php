@@ -2,16 +2,16 @@
     <div class="row gy-3">
 
         <div class="col-md-3">
-            <input type="text" class="form-control form-control-sm" placeholder="Search..." aria-label="First name">
+            <input wire:model="searchTerm" type="text" class="form-control form-control-sm" placeholder="Search Title or Status" aria-label="First name">
         </div>
         <div class="d-flux align-self-end col-md-3">
-            <a href="#" class="text-muted">Advance Search</a>
+
         </div>
 
         <div class="col-md-6">
             <div class="input-group">
-                <select wire:model="perPage" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected disabled>Per Page</option>
+                <label for="perPage" class="mr-1">Per Page</label>
+                <select wire:model="perPage"  id="perPage" class="form-select form-select-sm" aria-label=".form-select-sm example">
                     <option value="10">10</option>
                     <option value="25">25</option>
                     <option value="100">100</option>

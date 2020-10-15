@@ -11,11 +11,13 @@
                     </a>
                 </li>
             @else
+                <div>
                 <li class="page-item">
                     <a class="page-link" role="button" wire:click="previousPage" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
+                </div>
             @endif
 
             @foreach ($elements as $element)
@@ -39,11 +41,13 @@
             @endforeach
 
             @if ($paginator->hasMorePages())
+                <div>
                 <li class="page-item">
                     <a class="page-link" role="button" wire:click="nextPage" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
+                </div>
             @else
                 <li class="page-item disabled">
                     <a class="page-link" href="#" aria-label="Next">
