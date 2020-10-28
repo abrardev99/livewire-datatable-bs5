@@ -11,6 +11,8 @@ class Index extends Component
 {
     use WithPerPagePagination, WithSearchBoxTrait;
 
+    protected $listeners = ['refreshTable' => '$refresh'];
+
     public function mount()
     {
         $this->searchFields = ['title', 'status'];
@@ -21,10 +23,14 @@ class Index extends Component
     {
         $query = Post::query();
         $filtered =  $this->applyFilter($query);
-        return $this->applyPagination($filtered);
+        return $this->applyPagination($filtered->orderByDesc('id'));
 
     }
 
+    public function destroy(Post $post)
+    {
+        $post->delete();
+    }
 
     public function render()
     {

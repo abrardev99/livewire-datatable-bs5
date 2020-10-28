@@ -28,6 +28,7 @@
         integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
         crossorigin="anonymous"></script>
 @livewireScripts
+@stack('scripts')
 </body>
 
 </html>

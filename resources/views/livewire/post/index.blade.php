@@ -22,14 +22,7 @@
                     <option value="25">25</option>
                     <option value="100">100</option>
                 </select>
-                <button type="button" class="btn btn-sm btn-primary"><svg width="1em" height="1em"
-                                                                          viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
-                                                                          xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                              d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        <path fill-rule="evenodd"
-                              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                    </svg> New</button>
+                <livewire:post.create />
             </div>
 
 
@@ -44,6 +37,7 @@
                         <th scope="col">Title</th>
                         <th scope="col">Status</th>
                         <th scope="col">Date</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,6 +47,10 @@
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->status }}</td>
                         <td>{{ $post->date_formatted }}</td>
+                        <td>
+                            <button wire:click="destroy({{ $post->id }})" class=" btn btn-link text-danger">Delete</button>
+                            <livewire:post.create :post="$post"/>
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>
@@ -67,4 +65,5 @@
         </div>
 
     </div>
+
 </div>
